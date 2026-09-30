@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Comic Preview - ComicCraft
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="container">
+
+
+    <header class="topbar">
+
+        <div>
+
+            <span class="badge">
+                COMIC PREVIEW
+            </span>
+
+            <h1>
+                Your Comic
+            </h1>
+
+        </div>
+
+
+        <a
+            class="btn secondary"
+            href="/"
+        >
+            Create Another
+        </a>
+
+    </header>
+
+
+    {% for panel in layout %}
+
+
+    <article class="card panel">
+
+
+        <h2>
+
+            Panel {{ panel.panel_number }}:
+            {{ panel.title }}
+
+        </h2>
+
+
+        <img
+            src="{{ panel.image_path }}"
+            alt="Comic panel {{ panel.panel_number }}"
+        >
+
+
+        <p class="scene">
+
+            {{ panel.scene_description }}
+
+        </p>
+
+
+        <div class="caption">
+
+            {{ panel.caption }}
+
+        </div>
+
+
+        <p class="narration">
+
+            {{ panel.narration }}
+
+        </p>
+
+
+        {% for line in panel.dialogue %}
+
+        <p class="dialogue">
+
+            {{ line }}
+
+        </p>
+
+        {% endfor %}
+
+
+        <details>
+
+            <summary>
+                Image Prompt
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+
+    </article>
+
+
+    {% endfor %}
+
+
+    <section class="download">
+
+        <a
+            class="btn"
+            href="{{ pdf_path }}"
+            download
+        >
+
+            Download Your Comic as PDF
+
+        </a>
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

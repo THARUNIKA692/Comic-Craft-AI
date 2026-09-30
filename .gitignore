@@ -1,0 +1,17 @@
+.env
+
+.venv/
+
+env/
+
+__pycache__/
+
+*.pyc
+
+.vscode/
+
+static/panels/*
+static/exports/*
+
+!static/panels/.gitkeep
+!static/exports/.gitkeep
